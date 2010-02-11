@@ -1,5 +1,6 @@
 jQuery.fn.timeSink = function(list, range, mapper)
 {
+	var ts = this;
 	list = jQuery(list);
 
 	if ( list.length ) {
@@ -19,16 +20,16 @@ jQuery.fn.timeSink = function(list, range, mapper)
 	{
 		var sieve = range[idx];
 
-		$(el).click(function () {
-			cache.each(function() {
+		$(el).click(function ()
+		{
+			ts.sieve = sieve;
+			cache.each(function(i)
+			{
 				if (null == sieve) {
-					// show all
-					rows.show();
+					rows.show(); // show all
 				} else {
-					cache.each(function(i) {
-						if (cache[i] >= sieve) $(rows[i]).show();
-						else                   $(rows[i]).hide();
-					});
+					if (cache[i] >= sieve) $(rows[i]).show();
+					else                   $(rows[i]).hide();
 				}
 			});
 		});

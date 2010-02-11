@@ -7,13 +7,14 @@
 <link rel="stylesheet" href="timesink.css" type="text/css" />
 
 <script type="text/javascript">
+var ts;
 $(document).ready(function() {
 	var anchor  = new Date('December 25, 1975');
 //	var anchor  = new Date();
 	var quarter = new Date(anchor); quarter.setMonth(anchor.getMonth() - 4);
 	var year    = new Date(anchor); year.setFullYear(anchor.getFullYear() - 1);
 
-	$('#filter').timeSink(
+	ts = $('#filter').timeSink(
 		'#listing',
 		// specify the time range; corresponding to order of filter.li
 		[null, quarter, year],
