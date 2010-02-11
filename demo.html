@@ -1,11 +1,16 @@
+<head>
+
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js"></script>
+
 <script type="text/javascript" src="jquery.timesink.js"></script>
+<link rel="stylesheet" href="timesink.css" type="text/css" />
 
 <script type="text/javascript">
 $(document).ready(function() {
 	var anchor  = new Date('December 25, 1975');
+//	var anchor  = new Date();
 	var quarter = new Date(anchor); quarter.setMonth(anchor.getMonth() - 4);
-	var year    = new Date(anchor); year.setYear(anchor.getYear() - 1);
+	var year    = new Date(anchor); year.setFullYear(anchor.getFullYear() - 1);
 
 	$('#filter').timeSink(
 		'#listing',
@@ -14,12 +19,14 @@ $(document).ready(function() {
 		// mapper function to locate timestamp
 		function () {
 			return new Date($(this).html()); // li.innerHTML
-		},
-		anchor
+		}
 	);
 });
 </script>
 
+</head>
+
+<body>
 Anchor = 'December 25, 1975';
 
 <ul id="filter">
@@ -35,3 +42,4 @@ Anchor = 'December 25, 1975';
 	<li>Feb 13, 1975</li>
 	<li>July 13, 1973</li>
 </ul>
+</body>

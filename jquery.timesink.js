@@ -1,7 +1,6 @@
-jQuery.fn.timeSink = function(list, range, mapper, anchor)
+jQuery.fn.timeSink = function(list, range, mapper)
 {
 	list = jQuery(list);
-	anchor = anchor || new Date();
 
 	if ( list.length ) {
 		var rows = list.children('li');
@@ -27,8 +26,8 @@ jQuery.fn.timeSink = function(list, range, mapper, anchor)
 					rows.show();
 				} else {
 					cache.each(function(i) {
-						if (cache[i] > sieve) $(rows[i]).show();
-						else                  $(rows[i]).hide();
+						if (cache[i] >= sieve) $(rows[i]).show();
+						else                   $(rows[i]).hide();
 					});
 				}
 			});
